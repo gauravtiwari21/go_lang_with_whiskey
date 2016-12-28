@@ -1,0 +1,19 @@
+/* SOLUTION FOR REQUIREMENT 9 */
+SELECT Salesperson.Name FROM Salesperson, Orders WHERE
+Salesperson.SalespersonID = Orders.SalespersonID AND CustomerID IN (SELECT CustomerID FROM Customer WHERE name = 'George');
+
+
+SELECT DISTINCT Salesperson.Name FROM Salesperson, Orders
+WHERE Salesperson.SalespersonID NOT IN(
+SELECT Orders.SalespersonID FROM Orders, Customer
+WHERE Orders.CustomerID = Customer.CustomerID
+AND Customer.Name = 'George');
+
+SELECT name FROM Salesperson, Orders
+WHERE Orders.SalespersonID = Salesperson.SalespersonID
+GROUP BY name HAVING count(name) > 1;
+
+/* SOLUTON TO REQUIRMENT 10 */
+SELECT Salary FROM Salesperson
+ORDER BY Salary DESC LIMIT 2,1 ;
+sql.txt (END)
