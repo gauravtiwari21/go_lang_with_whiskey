@@ -15,10 +15,10 @@ func (e MyError) Error() string {
 }
 
 /*
-Follwing fucntion removes duplicates from the map
+Follwing function removes duplicates from the map
  */
 func removeDuplicates(elements []int) []int {
-	// Use map to record aduplicates as we find them.
+	// Use map to record duplicates as we find them.
 	encountered := map[int]bool{}
 	result := []int{}
 
@@ -37,7 +37,7 @@ func removeDuplicates(elements []int) []int {
 }
 
 /*
-Follwing fucntion checks if a goven input is positive integar
+Follwing function checks if a goven input is positive integar
  */
 func isPositive(input int) bool {
 	if input <= 0{
@@ -47,14 +47,14 @@ func isPositive(input int) bool {
 }
 
 /*
-Funtion to find count of occurrences elements in a given array of integers
-input: Int array
+Function to find count of occurrences of elements in a given array of integers
+input: int array
 returns: map with elements of above array as keys and occurence as value
  */
 func countOccurences(list []int) map[int]int{
 	duplicatesCounts := make(map[int]int)
 	for _, item := range list {
-		// check if the item/element exist in the duplicate_frequency map
+		// check if the item/element exist in the map with duplicates
 		_, exist := duplicatesCounts[item]
 		if exist {
 			duplicatesCounts[item] += 1 // increase counter by 1 if already in the map
