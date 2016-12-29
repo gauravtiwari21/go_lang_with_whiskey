@@ -4,21 +4,21 @@ import ("testing"
 	"sort"
 )
 
-// Following Tests are to check requirement 1 which is to identify Null string
+// Following test is to check requirement 1 which is to identify Null string, passed a null string and expecting True
 func TestIsNullWithNullStr_Requirement1(t *testing.T) {
 	if !isNull(""){
 		t.Error("TEST FAILED: Expected True but got False")
 	}
 }
 
-// Following test also to check requirement 1 which is to return false for valid string
+// Following test also checks requirement 1 which is to return false for valid string passed as FOO
 func TestIsNullWithFullStr_Requirement1(t *testing.T) {
 	if isNull("FOO") {
 		t.Error("TEST FAILED: Expected True but got False")
 	}
 }
 
-// Following test also to check requirement 1 which is to return false for valid string
+// Following test is to check requirement 2 which is to return divisors for a number. HAPPYPATH test with valid input
 func TestFindDivisors_Requirement2(t *testing.T) {
 	outputDivisors, _  := findDivisors(60)
 	desiredDivisors := []int { 1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30, 60, 30}
@@ -31,7 +31,7 @@ func TestFindDivisors_Requirement2(t *testing.T) {
 
 }
 
-// Following test also to check requirement 2 but returns error due to non-positive input
+// Following test checks requirement 2 which is to return divisors for a number but expects error due to non-positive input
 func TestFindDivisorsErrorNegativeInput_Requirement2(t *testing.T) {
 	_, e  := findDivisors(-90)
 	if e == nil{
@@ -39,7 +39,7 @@ func TestFindDivisorsErrorNegativeInput_Requirement2(t *testing.T) {
 	}
 }
 
-// Following test also to check requirement 2 but returns error due to 0 as input
+// Following test checks requirement 2 which is to return divisors for a number but expects error due to 0 as input
 func TestFindDivisorsErrorZeroInput_Requirement2(t *testing.T) {
 	_, e  := findDivisors(0)
 	if e == nil{
@@ -47,7 +47,7 @@ func TestFindDivisorsErrorZeroInput_Requirement2(t *testing.T) {
 	}
 }
 
-// Following test checks requirement 3 happy path with valid inputs
+// Following test checks requirement 3 happy path with valid inputs to return area of a triangle
 func TestFindAreaOfTriangle_Requirement3(t *testing.T) {
 	desiredResult := float64(9.797958971132712)
 	area,_ := getTriangleArea(5,4,7)
@@ -56,7 +56,7 @@ func TestFindAreaOfTriangle_Requirement3(t *testing.T) {
 	}
 }
 
-// Following test checks requirement 3 with negative inputs
+// Following test checks requirement 3 with negative inputs as sides of triangle and expects error
 func TestFindAreaOfTriangleNegativeInput_Requirement3(t *testing.T) {
 	_,e := getTriangleArea(-5,4,7)
 	if e == nil{
@@ -64,7 +64,7 @@ func TestFindAreaOfTriangleNegativeInput_Requirement3(t *testing.T) {
 	}
 }
 
-// Following test checks requirement 3 with invalid sides that cannot form a triangle
+// Following test checks requirement 3 with invalid sides that cannot form a triangle and expects error
 func TestFindAreaOfTriangleInvaidTriangle_Requirement3(t *testing.T) {
 	_,e := getTriangleArea(5,4,12)
 	if e == nil{
@@ -73,7 +73,7 @@ func TestFindAreaOfTriangleInvaidTriangle_Requirement3(t *testing.T) {
 }
 
 
-// Following test checks requirement 4 when input has repetitions
+// Following test checks requirement 4 when input array has repetitions
 func TestFindDuplicates_Requirement4(t *testing.T) {
 	input := []int{1,4,2,5,6,1,6,2,9}
 	outputArray := getDuplicates(input)
@@ -89,7 +89,7 @@ func TestFindDuplicates_Requirement4(t *testing.T) {
 }
 
 
-// Following test checks requirement 4 when the input has all unique elements
+// Following test checks requirement 4 when the input array has all unique elements
 func TestFindDuplicatesNoRepetitions_Requirement4(t *testing.T) {
 	var input = []int{1,4,2,5,6,9}
 	outputArray := getDuplicates(input)
@@ -156,7 +156,11 @@ func TestStartsWithMissing_Requirement5(t *testing.T) {
 	}
 }
 
-// Test for a helper function used to remove duplicates in a list
+/* TODO delete or move following tests to a new separate module as helpers_test.go because 
+the follwing tests as they may not be required now as they are already validated by tests for calling functions
+ 
+Test for a helper function used to remove duplicates in a list
+*/
 func TestRemoveDuplicates(t *testing.T){
 	inputLIst := []int {1,9,9,41}
 	outputSampleList := []int {1,9,41}
