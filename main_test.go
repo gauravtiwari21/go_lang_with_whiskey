@@ -104,7 +104,9 @@ func TestFindDuplicatesNoRepetitions_Requirement4(t *testing.T) {
 	}
 }
 
-// Following Tests are to check requirement 5 which is to add startswith and endswith methods to a type
+/* Following Tests are to check requirement 5 which is to add startswith and endswith methods to a type
+This test should test returning true for main string found to start with substring
+ */
 func TestStartsWith_Requirement5(t *testing.T) {
 	mainStr := String("hang the dj han")
 	findStr := String("hang")
@@ -117,7 +119,9 @@ func TestStartsWith_Requirement5(t *testing.T) {
 	}
 }
 
-// Following Tests are to check requirement 5 which is to add endswith and endswith methods to a type
+/* Following Tests are to check requirement 5 which is to add startswith and endswith methods to a type
+This test should test returning true for main string found to end with substring
+ */
 func TestEndsWith_Requirement5(t *testing.T) {
 	mainStr := String("hang the dj hand")
 	findStr := String("hand")
@@ -126,6 +130,28 @@ func TestEndsWith_Requirement5(t *testing.T) {
 	}
 	findStr = ""
 	if !mainStr.endsWith(findStr){
+		t.Error("TEST FAILED: valid substring not found in main string: ", mainStr, findStr)
+	}
+}
+
+/* Following Tests are to check requirement 5 which is to add startswith and endswith methods to a type
+This test should test returning false for main string not found to end with substring
+ */
+func TestEndsWithMissing_Requirement5(t *testing.T) {
+	mainStr := String("hang the dj hand")
+	findStr := String("handle")
+	if mainStr.endsWith(findStr) {
+		t.Error("TEST FAILED: valid substring not found in main string: ", mainStr, findStr)
+	}
+}
+
+/* Following Tests are to check requirement 5 which is to add startswith and endswith methods to a type
+This test should test returing false for main string not found to start with substring
+ */
+func TestStartsWithMissing_Requirement5(t *testing.T) {
+	mainStr := String("hang the dj hand")
+	findStr := String("handle")
+	if mainStr.endsWith(findStr) {
 		t.Error("TEST FAILED: valid substring not found in main string: ", mainStr, findStr)
 	}
 }
