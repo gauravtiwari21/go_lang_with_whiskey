@@ -3,6 +3,7 @@ package myGo
 import (
 	"math"
 	"sort"
+	"strings"
 )
 
 /* REQUIREMENT 1
@@ -133,4 +134,35 @@ func getTriangleArea(side1, side2, side3 int) (float64, error){
 			halfPerimeter-float64(side3))))
 
         return area, nil
+}
+
+
+/*
+REQUIREMENT 5: Adding methods to a type as startswith and endswith
+ */
+
+type String string  // Created a type and added the below methods to it so that they can be called using . <dot> notation
+
+/*
+Method to check if a text in the type "String" starts with a substring or ""
+Input: Main text to be searched for substring (Type: String), substring text to be searched(Type: String)
+Returns: bool (true if found or substring "", false if not found)
+ */
+func (fullString String) startsWith(subString String) bool {
+	if subString == ""{
+		return true
+	}
+	return strings.HasPrefix(string(fullString), string(subString))
+}
+
+/*
+Method to check if a text in the type "String" ends with a substring or ""
+Input: Main text to be searched for substring (Type: String), substring text to be searched(Type: String)
+Returns: bool (true if found or substring "", false if not found)
+ */
+func (fullString String) endsWith(findStr String) bool {
+	if findStr == ""{
+		return true
+	}
+	return strings.HasSuffix(string(fullString), string(findStr))
 }
