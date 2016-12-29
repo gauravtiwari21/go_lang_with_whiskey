@@ -8,7 +8,8 @@ import (
 
 /* REQUIREMENT 1
 Function for requirement 1. In go extended methods are not applicable so implementing this way,
-in C# there would have been an extended method 
+***NOTE : ANOTHER OPTION HERE THAT WORKS CLOSEST IS TO CREATE A TYPE AND THEN ADD A METHOD IS_NULL(), 
+THAT HAS BEEN DONE AT THE END OF THIS FILE IN startswith AND endswith methods
 Input: String
 Output: Boolean, true if not null, false if null
 */ 
