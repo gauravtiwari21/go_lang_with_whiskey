@@ -16,4 +16,3 @@ GROUP BY name HAVING count(name) > 1;
 /* SOLUTON TO REQUIRMENT 10 */
 SELECT Salary FROM Salesperson
 ORDER BY Salary DESC LIMIT 2,1 ;
-sql.txt (END)
